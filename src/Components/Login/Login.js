@@ -2,9 +2,19 @@ import React from 'react';
 
 const Login = () => {
   return (
-    <div className="flex items-center justify-center min-h-screen bg-gray-100">
-      <div className="bg-white p-8 rounded-lg shadow-md w-full max-w-sm">
-        <h2 className="text-2xl font-bold mb-6 text-center">Welcome Back</h2>
+    <div className="flex items-center justify-center  min-h-screen bg-gray-100">
+      <div className="bg-white p-10 rounded-lg shadow-md w-full max-w-md" // Adjust width here
+        style={{ minHeight: '320px' }} // Adjust height here
+        >
+      <h2 className="text-custom-lg font-medium leading-custom text-black mb-6 text-center">
+               <span 
+            className="relative inline-block" 
+            style={{ borderBottom: '2px solid #4EA89E' }}
+          >
+            Welcome
+                </span>
+                <span className="ml-1">Back!</span>
+        </h2>
         <form>
           <div className="mb-4">
             <label className="block text-gray-700 text-sm font-bold mb-2" htmlFor="username">
