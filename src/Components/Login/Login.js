@@ -58,7 +58,7 @@ const Login = () => {
           >
             Welcome
           </span>
-          <span className="ml-1">Back</span>
+          <span className="ml-1">Back!</span>
         </h2>
         <form onSubmit={handleSubmit}>
           <div className="mb-4">
