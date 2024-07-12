@@ -26,11 +26,12 @@ const Login = () => {
               className="w-full px-3 py-2 border rounded-lg shadow-sm focus:outline-none focus:ring focus:border-blue-300"
             />
           </div>
-          <div className="flex items-center justify-between">
-            <button
-              type="submit"
-              className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline"
-            >
+          <div className="flex justify-center">
+             <button
+             type="submit"
+             className="text-white font-bold py-2 w-64 rounded-lg focus:outline-none focus:shadow-outline"
+             style={{ backgroundColor: '#4EA89E' }}
+               >
               Login
             </button>
           </div>
