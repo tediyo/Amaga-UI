@@ -98,7 +98,7 @@ const Login = () => {
           <div className="flex justify-center">
             <button
               type="submit"
-              className="text-white font-bold py-2 px-6 rounded-lg focus:outline-none focus:shadow-outline"
+              className="text-white font-bold py-2 px-6 rounded-lg w-full max-w-xs focus:outline-none focus:shadow-outline"
               style={{ backgroundColor: '#4EA89E' }}
             >
               Login

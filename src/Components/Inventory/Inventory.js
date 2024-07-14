@@ -12,7 +12,7 @@ const Inventory = () => {
          style={{ backgroundColor: '#D9D9D9' }}
       >
         <h2 className="text-xl mb-4">Sidebar</h2>
-        <nav>
+        <nav className="text-black">
           <Link className="block py-2" to="/">Home</Link>
           <Link className="block py-2" to="/content">Content</Link>
           <Link className="block py-2" to="/footer">Footer</Link>
