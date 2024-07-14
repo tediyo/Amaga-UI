@@ -20,9 +20,9 @@ const Inventory = () => {
       </div>
       <div className="flex flex-col flex-grow">
         {/* top-left card */}
-        <div className="absolute top-0 left-64 bg-white shadow-md rounded-lg p-4 m-2 right-9 rounded-xl flex flex-col h-[150px] w-[calc(100%-16rem)]">
+        <div className="absolute top-0 left-64 bg-white shadow-md rounded-lg p-4 m-2 right-7 rounded-xl flex flex-col h-[150px] w-[calc(100%-16rem)]">
           {/* Dropdown menus */}
-          <div className="flex space-x-4 mb-2">
+          <div className="flex space-x-4 mb-2 px-6  w-48: ">
             <div className="flex-1">
               <DropdownMenu title="Menu 1" items={menuItems} />
             </div>
@@ -35,6 +35,7 @@ const Inventory = () => {
             <div className="flex-1">
               <DropdownMenu title="Menu 4" items={menuItems} />
             </div>
+            
           </div>
           {/* Card content */}
         
