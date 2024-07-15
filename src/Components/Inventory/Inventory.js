@@ -1,46 +1,107 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
-import DropdownMenu from './DropdownMenu';
+import axios from 'axios';
 
 const Inventory = () => {
-  const menuItems = ['Option 1', 'Option 2', 'Option 3'];
+  // State to manage dropdown menu visibility
+  const [dropdownOpen, setDropdownOpen] = useState({
+    menu1: false,
+    menu2: false,
+    menu3: false,
+    menu4: false,
+  });
+
+  // State to store profile data
+  const [profile, setProfile] = useState({
+    name: '',
+    profilePicture: '',
+    isAvailable: false, // Availability status
+  });
+
+  // Fetch profile data from the backend
+  useEffect(() => {
+    axios.get('https://your-backend-api.com/profile')
+      .then(response => {
+        setProfile({
+          name: response.data.name,
+          profilePicture: response.data.profilePicture,
+          isAvailable: response.data.isAvailable, // Fetch availability status
+        });
+      })
+      .catch(error => {
+        console.error('Error fetching profile data:', error);
+      });
+  }, []);
+
+  // Fetch random image for profile picture
+  useEffect(() => {
+    setProfile(prevProfile => ({
+      ...prevProfile,
+      profilePicture: 'https://picsum.photos/200'
+    }));
+  }, []);
+
+  const toggleDropdown = (menu) => {
+    setDropdownOpen((prevState) => ({
+      ...prevState,
+      [menu]: !prevState[menu],
+    }));
+  };
 
   return (
     <div className="flex">
       {/* Side bar */}
-      <div className=" text-white w-64 p-4 min-h-screen flex flex-col relative"
-         style={{ backgroundColor: '#D9D9D9' }}
-      >
+      <div className="bg-gray-800 text-white w-64 p-4 min-h-screen flex flex-col relative items-center">
+        {/* Profile Section */}
+        <div className="relative flex flex-col items-center mb-4">
+          <img src={profile.profilePicture} alt="Profile" className="w-24 h-24 rounded-full mb-2 relative" />
+          <span className="text-lg font-semibold">{profile.name}</span>
+          {/* Availability Status Indicator */}
+          <div
+            className={`absolute bottom-2 right-2 w-4 h-4 rounded-full border-2 ${
+              profile.isAvailable ? 'bg-green-500' : 'bg-yellow-500'
+            }`}
+          ></div>
+        </div>
+        
         <h2 className="text-xl mb-4">Sidebar</h2>
-        <nav className="text-black">
+        <nav className="w-full">
           <Link className="block py-2" to="/">Home</Link>
           <Link className="block py-2" to="/content">Content</Link>
           <Link className="block py-2" to="/footer">Footer</Link>
         </nav>
       </div>
+
+      {/* Main content */}
       <div className="flex flex-col flex-grow">
-        {/* top-left card */}
-        <div className="absolute top-0 left-64 bg-white shadow-md rounded-lg p-4 m-2 right-7 rounded-xl flex flex-col h-[150px] w-[calc(100%-16rem)]">
-          {/* Dropdown menus */}
-          <div className="flex space-x-4 mb-2 px-6  w-48: ">
-            <div className="flex-1">
-              <DropdownMenu title="Menu 1" items={menuItems} />
-            </div>
-            <div className="flex-1">
-              <DropdownMenu title="Menu 2" items={menuItems} />
-            </div>
-            <div className="flex-1">
-              <DropdownMenu title="Menu 3" items={menuItems} />
-            </div>
-            <div className="flex-1">
-              <DropdownMenu title="Menu 4" items={menuItems} />
-            </div>
-            
+        {/* Top-left card */}
+        <div className="absolute top-0 left-64 bg-white shadow-md rounded-lg p-4 m-2 right-6 rounded-xl h-[150px] flex items-center">
+          <h3 className="text-lg font-semibold mb-2 mr-4">Card title</h3>
+          <div className="flex space-x-4 w-full">
+            {/* Dropdown Menus */}
+            {['menu1', 'menu2', 'menu3', 'menu4'].map((menu, index) => (
+              <div key={index} className="relative flex-1">
+                <button
+                  onClick={() => toggleDropdown(menu)}
+                  className="bg-gray-200 text-black py-2 px-4 rounded-lg focus:outline-none w-full"
+                >
+                  Menu {index + 1}
+                </button>
+                {dropdownOpen[menu] && (
+                  <div className="absolute mt-2 w-full bg-white border rounded-lg shadow-lg">
+                    <ul>
+                      <li className="px-4 py-2 hover:bg-gray-100 cursor-pointer">Option 1</li>
+                      <li className="px-4 py-2 hover:bg-gray-100 cursor-pointer">Option 2</li>
+                      <li className="px-4 py-2 hover:bg-gray-100 cursor-pointer">Option 3</li>
+                    </ul>
+                  </div>
+                )}
+              </div>
+            ))}
           </div>
-          {/* Card content */}
-        
         </div>
       </div>
+
       {/* Main content area */}
       <div className="flex-grow p-4">
         {/* Add other main content here */}
