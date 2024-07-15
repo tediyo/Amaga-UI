@@ -93,7 +93,7 @@ const Inventory = () => {
           ></div>
         </div>
         
-        <h2 className="text-xl text-black mb-4">Sidebar</h2>
+        <h2 className="text-xl text-black mb-4">John Doe</h2>
         <nav className="w-full flex-grow flex flex-col justify-center">
           <Link className="block text-black py-2" to="/">Inventory</Link>
           <Link className="block text-black py-2" to="/content">Get Reports</Link>
@@ -145,7 +145,7 @@ const Inventory = () => {
         {/* "Item List" Button */}
         <button
           onClick={handleItemListClick}
-          className="bg-blue-500 text-white py-1 px-2 rounded-lg mt-4 ml-2 text-sm w-24"
+          className="bg-[#4EA89E] text-white py-1 px-2 rounded-lg mt-4 ml-2 text-sm w-24"
         >
           Item List
         </button>
@@ -165,7 +165,7 @@ const Inventory = () => {
                 </div>
 
                 <button
-                  className="bg-gray-300 text-black py-1 px-3 rounded-lg"
+                  className="bg-[#4EA89E] text-black py-1 px-3 rounded-lg"
                   onClick={() => alert(`Item Code for ${item.name}`)}
                 >
                   Item Code
@@ -177,9 +177,9 @@ const Inventory = () => {
 
         {/* Buttons at the bottom */}
         <div className="flex justify-end p-4">
-          <div className="flex flex-col space-y-4 absolute bottom-4 right-4">
-            <button className="bg-blue-500 text-white py-2 px-4 rounded-lg">Item List</button>
-            <button className="bg-green-500 text-white py-2 px-4 rounded-lg">Submit</button>
+          <div className="flex flex-col space-y-4 absolute bottom-0 right-4">
+            <button className="bg-[#4EA89E] text-white py-2 px-4 rounded-lg">Item List</button>
+            <button className="bg-[#4EA89E] text-white py-2 px-4 rounded-lg">Submit</button>
           </div>
         </div>
       </div>
