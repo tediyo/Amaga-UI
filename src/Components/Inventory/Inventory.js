@@ -50,11 +50,11 @@ const Inventory = () => {
       });
   }, []);
 
-  // Define predefined selected items
+  // Define predefined selected items with colors
   const predefinedSelectedItems = [
-    { id: 'it1', name: 'Item 1', description: 'Description for Item 1' },
-    { id: 'it2', name: 'Item 2', description: 'Description for Item 2' },
-    { id: 'it4', name: 'Item 4', description: 'Description for Item 4' }
+    { id: 'it1', name: 'Item 1', description: 'Description for Item 1', color: 'bg-[#AE0000]' },
+    { id: 'it2', name: 'Item 2', description: 'Description for Item 2', color: 'bg-[#00AE26]' },
+    { id: 'it4', name: 'Item 4', description: 'Description for Item 4', color: 'bg-[#0050AE]' }
   ];
 
   // Function to handle item selection
@@ -106,7 +106,6 @@ const Inventory = () => {
       <div className="flex flex-col flex-grow relative">
         {/* Top-left card */}
         <div className="relative bg-[#D9D9D9] shadow-md rounded-lg p-4 m-2 right-6 left-0 rounded-xl h-[100px] flex items-center">
-          {/* <h3 className="text-lg font-semibold mb-2 mr-4">Card title</h3> */}
           <div className="flex space-x-4 w-full">
             {/* Dropdown Menus */}
             {['menu1', 'menu2', 'menu3', 'menu4'].map((menu, index) => (
@@ -151,15 +150,26 @@ const Inventory = () => {
           Item List
         </button>
 
-        {/* Main content area */}
-        <div className="flex-grow p-4 pt-[200px]">
-          {/* Selected Items */}
+        {/* Selected Items */}
+        <div className="p-4">
           <h2 className="text-2xl font-bold mt-8 mb-4">Selected Items</h2>
           <div className="flex flex-col gap-4">
             {predefinedSelectedItems.map((item, index) => (
-              <div key={index} className="bg-gray-200 shadow-md rounded-lg p-4">
-                <h3 className="text-lg font-semibold">{item.name}</h3>
-                <p>{item.description}</p>
+              <div key={index} className="relative bg-gray-200 shadow-md rounded-lg p-4 flex items-center">
+                {/* Vertical Rectangle with dynamic color */}
+                <div className={`absolute top-0 left-0 w-2 h-full ${item.color} rounded-l-lg`}></div>
+
+                <div className="flex-1 ml-10"> {/* Added ml-10 to create space for vertical rectangle */}
+                  <h3 className="text-lg font-semibold">{item.name}</h3>
+                  <p>{item.description}</p>
+                </div>
+
+                <button
+                  className="bg-gray-300 text-black py-1 px-3 rounded-lg"
+                  onClick={() => alert(`Item Code for ${item.name}`)}
+                >
+                  Item Code
+                </button>
               </div>
             ))}
           </div>
