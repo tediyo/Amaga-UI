@@ -51,11 +51,12 @@ const Inventory = () => {
   return (
     <div className="flex">
       {/* Side bar */}
-      <div className="bg-gray-800 text-white w-64 p-4 min-h-screen flex flex-col relative items-center">
+      <div className="bg-[#D9D9D9] text-white w-64 p-4 min-h-screen flex flex-col relative items-center">
         {/* Profile Section */}
         <div className="relative flex flex-col items-center mb-4">
           <img src={profile.profilePicture} alt="Profile" className="w-24 h-24 rounded-full mb-2 relative" />
-          <span className="text-lg font-semibold">{profile.name}</span>
+          <span className="text-lg font-semibold">{profile.name} </span>
+          
           {/* Availability Status Indicator */}
           <div
             className={`absolute bottom-2 right-2 w-4 h-4 rounded-full border-2 ${
@@ -64,11 +65,12 @@ const Inventory = () => {
           ></div>
         </div>
         
-        <h2 className="text-xl mb-4">Sidebar</h2>
-        <nav className="w-full">
-          <Link className="block py-2" to="/">Home</Link>
-          <Link className="block py-2" to="/content">Content</Link>
-          <Link className="block py-2" to="/footer">Footer</Link>
+        <h2 className="text-xl text-black mb-4">Sidebar</h2>
+        <nav className="w-full flex-grow flex flex-col justify-center">
+          <Link className="block text-black py-2" to="/">Inventory</Link>
+          <Link className="block text-black py-2" to="/content">Get Reports</Link>
+          <Link className="block text-black py-2" to="/footer">Exchange History</Link>
+          <Link className="block text-black py-2" to="/footer">Recieve Histort</Link>
         </nav>
       </div>
 
