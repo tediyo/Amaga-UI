@@ -28,21 +28,23 @@ const Exchange_stock = () => {
   return (
     <div className="flex">
       {/* Side bar */}
-      <div className="bg-[#D9D9D9] text-white w-64 p-4 min-h-screen flex flex-col">
+      <div className="bg-[#D9D9D9] text-white w-64 p-4 min-h-screen flex flex-col relative items-centerol">
         {/* Profile Section */}
         <div className="relative flex flex-col items-center mb-4">
-          <img src={profile.profilePicture} alt="Profile" className="w-24 h-24 rounded-full mb-2 relative" />
-          <span className="text-lg font-semibold">{profile.name}</span>
-          
-          {/* Availability Status Indicator */}
-          <div
+          <div className="relative"> {/* Container for profile picture and status indicator */}
+            <img src={profile.profilePicture} alt="Profile" className="w-24 h-24 rounded-full mb-2" />
+            {/* Availability Status Indicator */}
+            <div
             className={`absolute bottom-2 right-2 w-4 h-4 rounded-full border-2 ${
               profile.isAvailable ? 'bg-green-500' : 'bg-yellow-500'
             }`}
           ></div>
+          </div>
+          
+          <span className="text-lg text-black font-semibold">{profile.name}John Doe </span> 
         </div>
         
-        <h2 className="text-xl text-black mb-4">John Doe</h2>
+        {/* <h2 className="text-xl text-black mb-4">John Doe</h2> */}
 
         {/* Navigation Links centered vertically */}
         <div className="flex-grow flex flex-col justify-center w-full">
@@ -65,7 +67,7 @@ const Exchange_stock = () => {
       <div className="flex flex-grow p-4 space-x-8 relative"> 
         {/* Adjust space-x-8 for spacing */}
         {/* Card 1 */}
-        <div className="bg-[#CDCDCD] shadow-md rounded-lg p-4 flex-1 h-[550px] relative">
+        <div className="bg-[#CDCDCD] shadow-md rounded-lg p-4 flex-1 h-[610px] relative">
           <div className="bg-[#4EA89E] text-black text-center py-4 rounded-t-lg absolute top-0 left-0 w-full">
             Customer Cylinder
           </div>
@@ -85,7 +87,7 @@ const Exchange_stock = () => {
           </button>
         </div>
         {/* Card 2 */}
-        <div className="bg-[#CDCDCD] shadow-md rounded-lg p-4 flex-1 h-[550px] relative">
+        <div className="bg-[#CDCDCD] shadow-md rounded-lg p-4 flex-1 h-[610px] relative">
           <div className="bg-[#4EA89E] text-black text-center py-4 rounded-t-lg absolute top-0 left-0 w-full">
             Exchange Stock Cylinder
           </div>
@@ -104,11 +106,11 @@ const Exchange_stock = () => {
             <span className="text-2xl font-bold">+</span>
           </button>
         </div>
-         {/* Buttons at the bottom */}
-         <div className="flex justify-end p-4">
-          <div className="flex flex-col space-y-4 absolute bottom-0 right-24">
-            
-            <button className="bg-[#4EA89E] text-white py-2 px-4 rounded-lg">Submit</button>
+        {/* Buttons at the bottom */}
+        <div className="flex justify-end p-4">
+          <div className="flex flex-col space-y-4 absolute bottom-2 right-24">
+            {/* Updated width of Submit Button */}
+            <button className="bg-[#4EA89E] text-white py-2 px-6  rounded-lg w-40">Submit</button> {/* Adjust width as needed */}
           </div>
         </div>
       </div>
