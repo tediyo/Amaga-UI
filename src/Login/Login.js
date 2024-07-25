@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { useNavigate } from 'react-router-dom';
 
 const Login = () => {
   // State for input values
@@ -7,6 +8,9 @@ const Login = () => {
 
   // State for errors
   const [errors, setErrors] = useState({ username: '', password: '' });
+
+  // Hook from react-router-dom to handle navigation
+  const navigate = useNavigate();
 
   // Handle input changes
   const handleChange = (e) => {
@@ -41,8 +45,18 @@ const Login = () => {
   const handleSubmit = (e) => {
     e.preventDefault();
     if (validate()) {
-      // Form is valid, proceed with submission
-      console.log('Form submitted:', { username, password });
+      const hardcodedUsername = 'admin';
+      const hardcodedPassword = 'password123';
+
+      if (username === hardcodedUsername && password === hardcodedPassword) {
+        // Store a token or a flag in localStorage to indicate the user is logged in
+        localStorage.setItem('authToken', 'some-auth-token');
+
+        // Redirect to the history page
+        navigate('/exchange');
+      } else {
+        alert('Invalid username or password');
+      }
     }
   };
 
@@ -52,7 +66,7 @@ const Login = () => {
         className="bg-white p-10 rounded-lg shadow-md w-full max-w-lg h-[350px]" // Adjusted width and height
       >
         <h2 className="text-custom-lg font-medium leading-custom text-black mb-6 text-center">
-          <span 
+          <span
             className="relative inline-block"
             style={{ borderBottom: '2px solid #4EA89E' }}
           >
