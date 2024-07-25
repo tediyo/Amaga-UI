@@ -80,6 +80,7 @@ const SidebarI = ({ setActiveItem, setShowForm, setShowPopup }) => {
           <li className="w-full flex justify-center">
             <button
               className="w-full max-w-xs p-4 mt-4 bg-[#4EA89E] text-white text-xl rounded hover:bg-blue-600"
+              onClick={() => handleItemClick('Transfer Cylinder')}
             >
               Transfer Cylinder
             </button>

@@ -4,7 +4,7 @@ import MainContent from '../Components/MainContent.jsx';
 import TopBar from '../Components/TopBar.jsx';
 import PopupCard from '../Components/PopupCard.jsx';
 import PopupcardAdd from '../Components/PopupcardAdd.jsx';
-
+import PopupTransfer from '../Components/PopupTransfer.jsx';
 const PrintReport = () => {
   const [activeItem, setActiveItem] = useState('Exchange stock');
   const [showForm, setShowForm] = useState(false);
@@ -25,7 +25,12 @@ const PrintReport = () => {
     else if (item === 'Add Cylinder') {
       setShowPopup(true);
       setPopupType('addCylinder');
-    } else {
+    }
+      else if (item === 'Transfer Cylinder') {
+      setShowPopup(true);
+      setPopupType('transferCylinder'); 
+    }
+      else {
       setShowPopup(false);
       setPopupType(null);
     }
@@ -52,6 +57,7 @@ const PrintReport = () => {
           <div className="fixed inset-0 bg-black bg-opacity-50 z-40" />
           {popupType === 'printReport' && <PopupCard onClose={handleClosePopup} />}
           {popupType === 'addCylinder' && <PopupcardAdd onClose={handleClosePopup} />}
+          {popupType === 'transferCylinder' && <PopupTransfer onClose={handleClosePopup} />}
         </>
       )}
     </div>
