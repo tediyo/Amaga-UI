@@ -9,7 +9,7 @@ import ExchangeHistory from './ExchangeHistory/ExchangeHisory.js';
 import ExchangeStock from './ExchangeStock/ExchangeStock.js';
 import Admin from './Admin/Admin.js';
 import PrintReport from './PrintReport/PrintReport.js';
-import AddCylinder from './AddCylinder/AddCylinder.js';
+//import AddCylinder from './AddCylinder/AddCylinder.js';
 import './styles.css';
 const App = () => {
   return (
@@ -22,7 +22,7 @@ const App = () => {
         <Route path="/receive" element={<RecieveHistory />} />
         <Route path="/admin" element={<Admin />} />
         <Route path="/report" element={<PrintReport />} />
-        <Route path="/add" element={<PrintReport />} />
+        {/* <Route path="/add" element={<PrintReport />} /> */}
       </Routes>
     </Router>
   );
