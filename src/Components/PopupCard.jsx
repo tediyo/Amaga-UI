@@ -17,10 +17,10 @@ const PopupCard = ({ onClose, searchQuery, onItemClick }) => {
           </div>
         </div>
         <button
-          className="absolute bottom-4 right-4 bg-[#4EA89E] text-white py-2 px-4 rounded hover:bg-blue-600"
+          className="absolute bottom-4 right-4 bg-[#4EA89E] text-white py-2 px-4 w-1/4  rounded-xl hover:bg-blue-600"
           onClick={onClose}
         >
-          Export
+         Export
         </button>
       </div>
     </div>

@@ -11,11 +11,11 @@ const SidebarI = ({ setActiveItem, setShowForm, setShowPopup }) => {
     setActiveItem(item);
 
     // Show popup based on item clicked
-    if (item === 'Print Report' || item === 'Add Cylinder') {
-      setShowPopup(true); // Show the popup
-    } else {
-      setShowPopup(false); // Hide the popup for other items
-    }
+  //   if (item === 'Print Report' || item === 'Add Cylinder') {
+  //     setShowPopup(true); // Show the popup
+  //   } else {
+  //     setShowPopup(false); // Hide the popup for other items
+  //   }
   };
 
   const handleAddButtonClick = () => {
